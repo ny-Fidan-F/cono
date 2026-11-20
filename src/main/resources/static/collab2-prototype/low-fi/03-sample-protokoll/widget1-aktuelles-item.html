@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Widget 1 – Sample-Protokoll</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="widget" data-widget-demo data-duration-minutes="15" data-sample-interval-minutes="3" data-base-rate="2" data-viewer-divider="50" data-initial-amount="0" data-sim-ms-per-minute="2000" data-viewer-min="20" data-viewer-max="180">
+        <h1>Widget 1 · Sample-Protokoll</h1>
+        <p>Testmodus: zufällige Zuschauer · 2 Sekunden entsprechen 1 Simulationsminute · ohne Backend</p>
+        <p>AKTUELLES ITEM: <strong>Item A</strong> · Angesammelt: <strong data-demo-total>0.00</strong></p>
+        <p>Letzter viewerCount: <strong data-demo-viewers>20</strong> Zuschauer · <span data-demo-next-sample>Nächstes Sample in 3.0 Sim-Min.</span></p>
+        <p>Item-Dauer: <span data-demo-elapsed>0.0</span> / <span data-demo-duration>15</span> min · <span data-demo-percent>0%</span></p>
+        <progress data-demo-item-progress value="0" max="15">0 von 15 min</progress>
+        <p>Samples bisher: <strong data-demo-sample-count>0</strong> · Sample-Intervall: <span data-demo-sample-elapsed>0.0</span> / <span data-demo-sample-interval>3</span> min</p>
+        <progress data-demo-sample-progress value="0" max="3">0 von 3 min</progress>
+        <h2>Was bei den letzten Samples geschah</h2>
+        <table>
+            <thead><tr><th>Zeit</th><th>Zuschauer</th><th>Zuwachs</th><th>Neuer Wert</th></tr></thead>
+            <tbody data-demo-log>
+                <tr><td colspan="4">Warte auf das erste Demo-Sample.</td></tr>
+            </tbody>
+        </table>
+        <p>Demo-Berechnung: Basisrate 2, Teiler 50. Die zufällige Zuschauerzahl wird bei jedem Sample eingesetzt.</p>
+        <p><a href="../index.html">Übersicht</a></p>
+    </main>
+    <script src="../demo-widget1.js" defer></script>
+</body>
+</html>

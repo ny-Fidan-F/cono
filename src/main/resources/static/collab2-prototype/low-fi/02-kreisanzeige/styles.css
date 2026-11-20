@@ -1,0 +1,8 @@
+.widget { max-width: 640px; border: 1px solid currentColor; padding: 12px; }
+.layout { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.time-ring { width: 170px; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(currentColor 0 var(--demo-progress, 0%), transparent var(--demo-progress, 0%) 100%); }
+.time-ring-inner { width: 76%; aspect-ratio: 1; border-radius: 50%; background: Canvas; display: grid; place-content: center; text-align: center; }
+.viewer-circle, .item-circle { border: 1px solid currentColor; border-radius: 50%; display: grid; place-content: center; text-align: center; }
+.viewer-circle { width: 105px; aspect-ratio: 1; }
+.item-grid { display: grid; grid-template-columns: repeat(2, minmax(120px, 1fr)); gap: 8px; }
+.item-circle { width: 125px; aspect-ratio: 1; }

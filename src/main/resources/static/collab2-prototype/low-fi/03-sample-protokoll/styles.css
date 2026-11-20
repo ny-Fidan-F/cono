@@ -1,0 +1,6 @@
+.widget { max-width: 760px; border: 1px solid currentColor; padding: 12px; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid currentColor; padding: 5px; text-align: left; }
+.queue { list-style: none; border-left: 1px solid currentColor; padding-left: 18px; }
+.queue li { position: relative; border: 1px solid currentColor; padding: 8px; margin: 8px 0; }
+.queue li::before { content: ""; position: absolute; width: 10px; height: 10px; border: 1px solid currentColor; border-radius: 50%; left: -24px; top: 12px; background: Canvas; }
