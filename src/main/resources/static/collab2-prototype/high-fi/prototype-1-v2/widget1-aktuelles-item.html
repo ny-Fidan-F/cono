@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Widget 1 · Aktuelles Item · Prototype 1 V2</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="demo.js" defer></script>
+</head>
+<body>
+    <main class="widget widget--current" id="widget1" aria-label="Widget 1: Aktuelles Item" data-widget-width="680" data-widget-height="273">
+        <section class="current-item">
+            <p class="eyebrow">AKTUELLES ITEM</p>
+            <h1 data-current-item>Item A</h1>
+            <p class="item-order">Item <span data-current-order>1</span> von 4</p>
+            <p class="run-state"><span class="status-dot status-dot--active" aria-hidden="true"></span><span data-run-state>Akkumulation läuft</span></p>
+        </section>
+
+        <div class="accent-divider" aria-hidden="true"></div>
+
+        <div class="metrics">
+            <div class="metric-row">
+                <section class="metric metric--viewers">
+                    <h2>ZUSCHAUER JETZT</h2>
+                    <p class="metric-value" data-viewers>124</p>
+                </section>
+                <section class="metric metric--total">
+                    <h2>ANGESAMMELT</h2>
+                    <p class="metric-value" data-total>38.5</p>
+                </section>
+            </div>
+
+            <div class="progress-block progress-block--duration">
+                <div class="progress-label">
+                    <span>Item-Dauer</span>
+                    <span class="progress-value progress-value--amber"><span data-elapsed>7.0</span> / <span data-duration>15</span> min · <span data-duration-percent>47</span>%</span>
+                </div>
+                <div class="progress-track" role="progressbar" aria-label="Item-Dauer" aria-valuemin="0" aria-valuemax="15" aria-valuenow="7" data-duration-track>
+                    <span class="progress-fill progress-fill--amber" data-duration-fill></span>
+                </div>
+            </div>
+
+            <div class="progress-block progress-block--sample">
+                <div class="progress-label">
+                    <span>Sample-Intervall</span>
+                    <span class="progress-value progress-value--teal"><span data-sample-elapsed>2.0</span> / <span data-sample-interval>3</span> min</span>
+                </div>
+                <div class="progress-track" role="progressbar" aria-label="Sample-Intervall" aria-valuemin="0" aria-valuemax="3" aria-valuenow="2" data-sample-track>
+                    <span class="progress-fill progress-fill--teal" data-sample-fill></span>
+                </div>
+                <p class="next-sample" data-next-sample>Nächstes Sample in 2 sek</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

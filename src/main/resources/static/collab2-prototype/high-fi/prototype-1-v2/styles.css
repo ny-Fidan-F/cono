@@ -1,0 +1,318 @@
+:root {
+    color-scheme: dark;
+    --surface: #11181a;
+    --surface-raised: #1a292e;
+    --border: #435259;
+    --line: #2d3b3d;
+    --text: #f1f3ee;
+    --text-muted: #b2c3c5;
+    --text-subtle: #879b9e;
+    --amber: #d0a069;
+    --amber-bright: #deb178;
+    --teal: #7ca9a6;
+    --teal-bright: #88b7b4;
+    --waiting: #91a0a0;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+    margin: 0;
+    background: transparent;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    color: var(--text);
+    font-family: Roboto, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.widget {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.widget--current {
+    width: 680px;
+    height: 273px;
+}
+
+.current-item {
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    width: 214px;
+    height: 250px;
+    padding: 18px;
+    background: var(--surface-raised);
+    border-radius: 10px;
+}
+
+.eyebrow,
+.metric h2,
+.column-title {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.035em;
+}
+
+.eyebrow { color: var(--text-muted); }
+
+.current-item h1 {
+    position: absolute;
+    top: 48px;
+    left: 18px;
+    margin: 0;
+    font-size: 31px;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.item-order {
+    position: absolute;
+    top: 97px;
+    left: 18px;
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.run-state {
+    position: absolute;
+    top: 129px;
+    left: 19px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    color: var(--amber-bright);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.status-dot {
+    display: inline-block;
+    flex: 0 0 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.status-dot--active { color: var(--amber); }
+
+.accent-divider {
+    position: absolute;
+    top: 13px;
+    left: 243px;
+    width: 3px;
+    height: 248px;
+    background: #35464c;
+}
+
+.metrics {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.metric-row {
+    position: absolute;
+    top: 29px;
+    left: 269px;
+    display: flex;
+    gap: 53px;
+}
+
+.metric { width: 150px; }
+.metric--total { width: 150px; }
+.metric--viewers h2 { color: var(--teal-bright); }
+.metric--total h2 { color: #d5a366; }
+
+.metric-value {
+    margin: 3px 0 0;
+    color: var(--text);
+    font-size: 27px;
+    line-height: 1.35;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.progress-block {
+    position: absolute;
+    left: 269px;
+    width: 386px;
+}
+
+.progress-block--duration { top: 121px; }
+.progress-block--sample { top: 183px; }
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    min-height: 20px;
+    color: #d0d9d6;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.progress-value {
+    margin-left: auto;
+    font-weight: 500;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.progress-value--amber { color: #d9ad74; }
+.progress-value--teal { color: #8db8b5; }
+
+.progress-track {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    margin-top: 9px;
+    overflow: hidden;
+    background: var(--line);
+    border-radius: 8px;
+}
+
+.progress-fill {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    transition: width 180ms linear;
+}
+
+.progress-fill--amber { background: #d0a069; }
+.progress-fill--teal { background: var(--teal); }
+
+.next-sample {
+    margin: 10px 0 0;
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.widget--overview {
+    width: 330px;
+    height: 260px;
+}
+
+.overview-header {
+    position: absolute;
+    top: 13px;
+    left: 19px;
+    right: 19px;
+    display: grid;
+    grid-template-columns: 139px 50px 1fr;
+    align-items: center;
+    height: 25px;
+}
+
+.overview-header h1 {
+    margin: 0;
+    font-size: 17px;
+    line-height: 26px;
+}
+
+.column-title {
+    color: var(--text-subtle);
+    font-size: 10px;
+    text-align: right;
+}
+
+.column-title--status { text-align: left; padding-left: 17px; }
+
+.overview-header::after {
+    position: absolute;
+    top: 34px;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: var(--line);
+    content: "";
+}
+
+.item-list {
+    position: absolute;
+    top: 48px;
+    right: 19px;
+    left: 19px;
+    display: grid;
+    grid-template-rows: 40px 47px 47px 47px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.item-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 38px 94px 50px 1fr;
+    align-items: center;
+    min-width: 0;
+}
+
+.item-row:not(:last-child)::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background: var(--line);
+    content: "";
+}
+
+.item-marker {
+    display: grid;
+    width: 26px;
+    height: 26px;
+    place-items: center;
+    border: 1px solid var(--amber);
+    border-radius: 50%;
+    color: var(--amber);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.item-marker--next { border-color: var(--teal); color: var(--teal); }
+.item-marker--waiting { border-color: #647478; color: var(--waiting); }
+
+.item-description { display: grid; gap: 1px; }
+.item-name { color: var(--text); font-size: 14px; white-space: nowrap; }
+.item-duration { color: var(--text-muted); font-size: 10px; white-space: nowrap; }
+
+.item-value {
+    color: var(--text);
+    font-size: 15px;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+.item-status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-left: 17px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.item-status--active { color: var(--amber); }
+.item-status--next { color: var(--teal); }
+.item-status--waiting { color: var(--waiting); }
