@@ -50,6 +50,13 @@ function storageChanged() {
         });
         row.append($("<td>").append(viewerDivisorInput));
 
+        const del = $("<button>").addClass("delete").text("✕");
+        del.on("click", () => {
+            storage.data.items = storage.data.items.filter((i) => i.id !== item.id);
+            backend.pushStorage();
+        });
+        row.append($("<td>").append(del));
+
         $("#items").append(row);
     });
 }
