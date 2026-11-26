@@ -8,12 +8,48 @@ function storageChanged() {
 
     items.forEach((item) => {
         const row = $("<tr>");
-        row.append($("<td>").text(item.name));
-        row.append($("<td>").text(item.durationMin));
-        row.append($("<td>").text(item.sampleEveryMin));
-        row.append($("<td>").text(item.startAmount));
-        row.append($("<td>").text(item.baseRate));
-        row.append($("<td>").text(item.viewerDivisor));
+        const nameInput = $("<input>").addClass("name").val(item.name);
+        nameInput.on("change", () => {
+            item.name = nameInput.val();
+            backend.pushStorage();
+        });
+        row.append($("<td>").append(nameInput));
+
+        const durationInput = $("<input>").val(item.durationMin);
+        durationInput.on("change", () => {
+            item.durationMin = Number(durationInput.val());
+            backend.pushStorage();
+        });
+        row.append($("<td>").append(durationInput));
+
+        const sampleInput = $("<input>").val(item.sampleEveryMin);
+        sampleInput.on("change", () => {
+            item.sampleEveryMin = Number(sampleInput.val());
+            backend.pushStorage();
+        });
+        row.append($("<td>").append(sampleInput));
+
+        const startAmountInput = $("<input>").val(item.startAmount);
+        startAmountInput.on("change", () => {
+            item.startAmount = Number(startAmountInput.val());
+            backend.pushStorage();
+        });
+        row.append($("<td>").append(startAmountInput));
+
+        const baseRateInput = $("<input>").val(item.baseRate);
+        baseRateInput.on("change", () => {
+            item.baseRate = Number(baseRateInput.val());
+            backend.pushStorage();
+        });
+        row.append($("<td>").append(baseRateInput));
+
+        const viewerDivisorInput = $("<input>").val(item.viewerDivisor);
+        viewerDivisorInput.on("change", () => {
+            item.viewerDivisor = Number(viewerDivisorInput.val());
+            backend.pushStorage();
+        });
+        row.append($("<td>").append(viewerDivisorInput));
+
         $("#items").append(row);
     });
 }
