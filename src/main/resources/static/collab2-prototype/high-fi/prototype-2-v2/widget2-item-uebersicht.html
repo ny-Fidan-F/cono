@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Widget 2 · Items als Kreise · Prototype 2 V2</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../shared/widget2-state.js" defer></script>
+</head>
+<body>
+    <main class="widget widget--overview" id="widget2" aria-label="Widget 2: Item-Übersicht als Kreise" data-prototype-id="prototype2v2" data-widget-width="330" data-widget-height="300">
+        <header class="overview-header">
+            <h1>Item-Übersicht</h1>
+            <span>4 Items</span>
+        </header>
+        <div class="item-grid">
+            <article class="item-circle item-circle--current" aria-label="Item A, aktuell">
+                <span class="item-name">Item A</span>
+                <strong data-accumulated-value>38.5</strong>
+                <span class="item-state">AKTUELL</span>
+            </article>
+            <article class="item-circle item-circle--next" aria-label="Item B, als nächstes">
+                <span class="item-name">Item B</span>
+                <strong>12</strong>
+                <span class="item-state">ALS NÄCHSTES</span>
+            </article>
+            <article class="item-circle item-circle--waiting" aria-label="Item C, wartet">
+                <span class="item-name">Item C</span>
+                <strong>0</strong>
+                <span class="item-state">WARTET</span>
+            </article>
+            <article class="item-circle item-circle--waiting" aria-label="Item D, wartet">
+                <span class="item-name">Item D</span>
+                <strong>4.5</strong>
+                <span class="item-state">WARTET</span>
+            </article>
+        </div>
+    </main>
+</body>
+</html>

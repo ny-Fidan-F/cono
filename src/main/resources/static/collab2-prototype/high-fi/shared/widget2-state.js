@@ -2,9 +2,10 @@
     const widget = document.querySelector("#widget2");
     if (!widget) return;
 
-    const storageKey = "collab2.prototype1v2.state";
+    const prototypeId = widget.dataset.prototypeId;
+    const storageKey = `collab2.${prototypeId}.state`;
     const channel = "BroadcastChannel" in window
-        ? new BroadcastChannel("collab2.prototype1v2")
+        ? new BroadcastChannel(`collab2.${prototypeId}`)
         : null;
 
     function fitWidget() {
@@ -17,12 +18,14 @@
     }
 
     function showState(state) {
-        if (!state) return;
-        if (Number.isFinite(state.accumulatedValue)) {
-            widget.querySelector("[data-overview-value='0']").textContent = state.accumulatedValue.toFixed(1);
-        }
-        if (Number.isFinite(state.elapsedMinutes)) {
-            widget.querySelector("[data-overview-elapsed]").textContent = state.elapsedMinutes.toFixed(1);
+        if (!state || !Number.isFinite(state.accumulatedValue)) return;
+
+        const value = widget.querySelector("[data-accumulated-value]");
+        if (value) value.textContent = state.accumulatedValue.toFixed(1);
+
+        const elapsed = widget.querySelector("[data-elapsed-minutes]");
+        if (elapsed && Number.isFinite(state.elapsedMinutes)) {
+            elapsed.textContent = state.elapsedMinutes.toFixed(1);
         }
     }
 
@@ -31,7 +34,7 @@
             const rawState = localStorage.getItem(storageKey);
             showState(rawState ? JSON.parse(rawState) : null);
         } catch (error) {
-            // Keep the Figma example values if browser storage is unavailable.
+            // Keep the example values from the HTML if browser storage is unavailable.
         }
     }
 
@@ -43,7 +46,7 @@
         try {
             showState(JSON.parse(event.newValue));
         } catch (error) {
-            // Ignore an incomplete storage update and keep the latest visible values.
+            // Keep the most recent visible values.
         }
     });
     channel?.addEventListener("message", (event) => showState(event.data));

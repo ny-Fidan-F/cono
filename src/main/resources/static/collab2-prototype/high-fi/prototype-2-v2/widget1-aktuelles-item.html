@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Widget 1 · Zeit als Kreis · Prototype 2 V2</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../shared/accumulation.js" defer></script>
+    <script src="widget1-view.js" defer></script>
+</head>
+<body>
+    <main class="widget widget--current" id="widget1" aria-label="Widget 1: Aktuelles Item mit Kreisfortschritt" data-prototype-id="prototype2v2" data-widget-width="524" data-widget-height="283">
+        <h1 class="widget-title">Aktuelles Item</h1>
+        <p class="current-name" data-current-item>Item A</p>
+        <p class="current-order">Item <span data-current-order>1</span> von 4 · <span data-run-state>Akkumulation läuft</span></p>
+
+        <div class="item-monogram" aria-hidden="true">A</div>
+
+        <section class="metric metric--viewers">
+            <h2>ZUSCHAUER JETZT</h2>
+            <p data-viewers>124</p>
+        </section>
+        <section class="metric metric--total">
+            <h2>ANGESAMMELT</h2>
+            <p data-total>38.5</p>
+        </section>
+
+        <div class="duration-ring" data-duration-ring role="progressbar" aria-label="Item-Dauer" aria-valuemin="0" aria-valuemax="15" aria-valuenow="7">
+            <div class="duration-ring__center">
+                <span class="ring-label">ITEM-DAUER</span>
+                <strong data-duration-percent>47%</strong>
+                <span class="ring-time"><span data-elapsed>7.0</span> / <span data-duration>15</span> min</span>
+            </div>
+        </div>
+
+        <div class="divider" aria-hidden="true"></div>
+        <div class="sample-label">
+            <span>Sample-Intervall</span>
+            <span class="sample-value"><span data-sample-elapsed>2.0</span> / <span data-sample-interval>3</span> min</span>
+        </div>
+        <div class="sample-track" role="progressbar" aria-label="Sample-Intervall" aria-valuemin="0" aria-valuemax="3" aria-valuenow="2" data-sample-track>
+            <span data-sample-fill></span>
+        </div>
+        <p class="next-sample" data-next-sample>Nächstes Sample in 2 sek</p>
+    </main>
+</body>
+</html>

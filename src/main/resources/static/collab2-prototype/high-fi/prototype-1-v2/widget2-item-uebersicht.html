@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Widget 2 · Item-Übersicht · Prototype 1 V2</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="widget2.js" defer></script>
+    <script src="../shared/widget2-state.js" defer></script>
 </head>
 <body>
-    <main class="widget widget--overview" id="widget2" aria-label="Widget 2: Item-Übersicht" data-widget-width="330" data-widget-height="260">
+    <main class="widget widget--overview" id="widget2" aria-label="Widget 2: Item-Übersicht" data-prototype-id="prototype1v2" data-widget-width="330" data-widget-height="260">
         <header class="overview-header">
             <h1>Item-Übersicht</h1>
             <span class="column-title">WERT</span>
@@ -17,8 +17,8 @@
         <ol class="item-list">
             <li class="item-row item-row--active" data-item-row="0">
                 <span class="item-marker" aria-hidden="true">A</span>
-                <div class="item-description"><span class="item-name">Item A</span><span class="item-duration"><span data-overview-elapsed>7.0</span> / 15 min</span></div>
-                <strong class="item-value" data-overview-value="0">38.5</strong>
+                <div class="item-description"><span class="item-name">Item A</span><span class="item-duration"><span data-elapsed-minutes>7.0</span> / 15 min</span></div>
+                <strong class="item-value" data-accumulated-value>38.5</strong>
                 <span class="item-status item-status--active"><span class="status-dot" aria-hidden="true"></span>AKTUELL</span>
             </li>
             <li class="item-row" data-item-row="1">
