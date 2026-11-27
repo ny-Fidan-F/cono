@@ -52,6 +52,7 @@ function storageChanged() {
 
         const del = $("<button>").addClass("delete").text("✕");
         del.on("click", () => {
+            if (!confirm("Item \"" + item.name + "\" wirklich löschen?")) return;
             storage.data.items = storage.data.items.filter((i) => i.id !== item.id);
             backend.pushStorage();
         });
