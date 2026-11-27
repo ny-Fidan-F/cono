@@ -3,6 +3,7 @@ let storage;
 
 function storageChanged() {
     const items = storage.data.items;
+    $("#status").text("Status: " + storage.data.run.status);
 
     $("#items").empty();
 
@@ -76,8 +77,49 @@ function addItem() {
     backend.pushStorage();
 }
 
+function start() {
+    const run = storage.data.run;
+    if (run.status === "stopped") {
+        run.status = "running";
+        run.itemStartedAt = Date.now();
+        run.pausedTotalMs = 0;
+    } else if (run.status === "paused") {
+        run.pausedTotalMs += Date.now() - run.pausedAt;
+        run.pausedAt = null;
+        run.status = "running";
+    }
+    backend.pushStorage();
+}
+
+function pause() {
+    const run = storage.data.run;
+    if (run.status === "running") {
+        run.status = "paused";
+        run.pausedAt = Date.now();
+    }
+    backend.pushStorage();
+}
+
+function reset() {
+    if (!confirm("Alles zurücksetzen?")) return;
+    storage.data.run = {
+        status: "stopped",
+        currentIndex: 0,
+        itemStartedAt: null,
+        pausedAt: null,
+        pausedTotalMs: 0,
+        samplesDone: 0,
+        amounts: {},
+        lastViewerCount: 0
+    };
+    backend.pushStorage();
+}
+
 $(() => {
     storage = new AccumulationStorage(storageChanged);
     backend = new Backend(undefined, storage);
     $("#addItem").click(addItem);
+    $("#start").click(start);
+    $("#pause").click(pause);
+    $("#reset").click(reset);
 });
