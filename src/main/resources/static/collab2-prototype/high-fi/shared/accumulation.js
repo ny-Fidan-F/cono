@@ -23,6 +23,11 @@
         let sampleCount = 2;
         let accumulatedValue = 38.5;
         let viewerCount = 124;
+        let sampleHistory = [
+            { time: "12:00", viewers: 80, increase: 5.2, accumulatedValue: 25.54 },
+            { time: "12:03", viewers: 100, increase: 6, accumulatedValue: 31.54 },
+            { time: "12:06", viewers: 124, increase: 6.96, accumulatedValue: 38.5 }
+        ];
         let lastTick = performance.now();
         let lastPublishedAt = 0;
         let clock;
@@ -46,6 +51,19 @@
             const increase = settings.baseRate * (1 + viewerCount / settings.viewerDivider);
             accumulatedValue = Math.round((accumulatedValue + increase) * 100) / 100;
             sampleCount += 1;
+            sampleHistory.push({
+                time: nextSampleTime(),
+                viewers: viewerCount,
+                increase,
+                accumulatedValue
+            });
+            sampleHistory = sampleHistory.slice(-3);
+        }
+
+        function nextSampleTime() {
+            const [hours, minutes] = sampleHistory.at(-1).time.split(":").map(Number);
+            const next = (hours * 60 + minutes + settings.sampleIntervalMinutes) % (24 * 60);
+            return `${String(Math.floor(next / 60)).padStart(2, "0")}:${String(next % 60).padStart(2, "0")}`;
         }
 
         function buildState() {
@@ -61,6 +79,7 @@
                 sampleElapsedMinutes: visibleSampleElapsed,
                 sampleCount,
                 accumulatedValue,
+                sampleHistory: sampleHistory.map((sample) => ({ ...sample })),
                 durationMinutes: settings.durationMinutes,
                 sampleIntervalMinutes: settings.sampleIntervalMinutes,
                 durationProgress: Math.min(100, elapsedMinutes / settings.durationMinutes * 100),

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Widget 2 · Item-Warteschlange · Prototype 3 V2</title>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <script src="../shared/widget2-state.js" defer></script>
+</head>
+<body>
+    <main class="widget widget--queue" id="widget2" aria-label="Widget 2: Item-Warteschlange" data-prototype-id="prototype3v2" data-widget-width="330" data-widget-height="278">
+        <h1>Item-Warteschlange</h1>
+        <div class="queue-divider" aria-hidden="true"></div>
+        <div class="queue-line" aria-hidden="true"></div>
+        <ol class="queue-list">
+            <li class="queue-row queue-row--current">
+                <span class="queue-point" aria-hidden="true"></span>
+                <span class="queue-name">Item A</span>
+                <span class="queue-status"><span class="status-dot" aria-hidden="true"></span>JETZT</span>
+                <strong class="queue-value" data-accumulated-value>38.5</strong>
+                <span class="queue-duration"><span data-elapsed-minutes>7.0</span> / 15 min</span>
+            </li>
+            <li class="queue-row queue-row--next">
+                <span class="queue-point" aria-hidden="true"></span>
+                <span class="queue-name">Item B</span>
+                <span class="queue-status"><span class="status-dot" aria-hidden="true"></span>ALS NÄCHSTES</span>
+                <strong class="queue-value">12</strong>
+            </li>
+            <li class="queue-row queue-row--waiting">
+                <span class="queue-point" aria-hidden="true"></span>
+                <span class="queue-name">Item C</span>
+                <span class="queue-status"><span class="status-dot" aria-hidden="true"></span>DANACH</span>
+                <strong class="queue-value">0</strong>
+            </li>
+            <li class="queue-row queue-row--waiting">
+                <span class="queue-point" aria-hidden="true"></span>
+                <span class="queue-name">Item D</span>
+                <span class="queue-status"><span class="status-dot" aria-hidden="true"></span>DANACH</span>
+                <strong class="queue-value">4.5</strong>
+            </li>
+        </ol>
+    </main>
+</body>
+</html>

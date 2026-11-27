@@ -13,6 +13,10 @@ Die gestalteten Prototypen liegen in eigenen Unterordnern. Jeder Prototyp hat zw
 - `prototype-2-v2/widget2-item-uebersicht.html` – Widget 2 mit vier Item-Kreisen
 - `prototype-2-v2/styles.css` – Gestaltung von Prototype 2 V2
 - `prototype-2-v2/widget1-view.js` – zeigt dieselben gemeinsamen Werte im Kreis-Design von Prototype 2
+- `prototype-3-v2/widget1-sample-protokoll.html` – Widget 1 als Sample-Protokoll mit den letzten drei Samples
+- `prototype-3-v2/widget2-item-warteschlange.html` – Widget 2 als Warteschlange mit aktuellem und folgenden Items
+- `prototype-3-v2/styles.css` – Gestaltung für die beiden Widgets von Prototype 3
+- `prototype-3-v2/widget1-view.js` – zeigt neue Sample-Werte als Tabellenzeilen
 
 Beide Prototypen verwenden dieselbe Berechnung. Widget 1 berechnet und sendet die Werte; Widget 2 empfängt sie. Die einzelnen `widget1-view.js`-Dateien enthalten nur noch die Anzeige passend zum jeweiligen Design.
 

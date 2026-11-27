@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Widget 1 · Sample-Protokoll · Prototype 3 V2</title>
+    <link rel="stylesheet" href="styles.css?v=2">
+    <script src="../shared/accumulation.js" defer></script>
+    <script src="widget1-view.js" defer></script>
+</head>
+<body>
+    <main class="widget widget--log" id="widget1" aria-label="Widget 1: Sample-Protokoll" data-prototype-id="prototype3v2" data-widget-width="680" data-widget-height="306">
+        <header class="item-header">
+            <div class="item-identity">
+                <p class="eyebrow">Sample-Protokoll</p>
+                <h1>Item A</h1>
+                <p class="item-state">Item 1 von 4 · <span data-run-state>Akkumulation läuft</span></p>
+            </div>
+            <section class="metric metric--viewers">
+                <h2>ZUSCHAUER</h2>
+                <p data-viewers>124</p>
+            </section>
+            <section class="metric metric--total">
+                <h2>ANGESAMMELT</h2>
+                <p data-total>38.50</p>
+            </section>
+            <div class="item-monogram" aria-hidden="true">A</div>
+        </header>
+
+        <div class="timing-row">
+            <p class="item-duration">Item-Dauer <span data-elapsed>7.0</span> / <span data-duration>15</span> min</p>
+            <p class="next-sample" data-next-sample>Nächstes Sample in 2 sek</p>
+        </div>
+
+        <table class="sample-table">
+            <thead>
+                <tr><th scope="col">ZEIT</th><th scope="col">ZUSCHAUER</th><th scope="col">ZUWACHS</th><th scope="col">NEUER WERT</th></tr>
+            </thead>
+            <tbody data-sample-history>
+                <tr><td>12:00</td><td>80</td><td>+5.20</td><td>25.54</td></tr>
+                <tr><td>12:03</td><td>100</td><td>+6.00</td><td>31.54</td></tr>
+                <tr class="sample-row--latest"><td>12:06</td><td>124</td><td>+6.96</td><td>38.50</td></tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
